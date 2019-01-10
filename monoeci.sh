@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -x
+trap read debug
+
 ################################################
 # Script by François YoYae GINESTE - 03/04/2018
 # For monoeciCore V0.12.2.3
