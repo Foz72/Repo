@@ -144,21 +144,21 @@ EOF
 chown -R $whoami:$whoami /home/$whoami
 
 #Install Moneoci Daemon
-echo 'Downloading daemon...'
-cd
-wget https://github.com/monacocoin-net/monoeci-core/releases/download/v0.12.2.3/monoeciCore-0.12.2.3-linux64.tar.gz >> $LOG_FILE 2>&1
-tar xvzf monoeciCore-0.12.2.3-linux64.tar.gz >> $LOG_FILE 2>&1
-cp monoeciCore-0.12.2/bin/monoecid /usr/bin/ >> $LOG_FILE 2>&1
-cp monoeciCore-0.12.2/bin/monoeci-cli /usr/bin/ >> $LOG_FILE 2>&1
-cp monoeciCore-0.12.2/bin/monoeci-tx /usr/bin/ >> $LOG_FILE 2>&1
-rm -rf monoeciCore-0.12.2 >> $LOG_FILE 2>&1
+#echo 'Downloading daemon...'
+#cd
+#wget https://github.com/monacocoin-net/monoeci-core/releases/download/v0.12.2.3/monoeciCore-0.12.2.3-linux64.tar.gz >> $LOG_FILE 2>&1
+#tar xvzf monoeciCore-0.12.2.3-linux64.tar.gz >> $LOG_FILE 2>&1
+#cp monoeciCore-0.12.2/bin/monoecid /usr/bin/ >> $LOG_FILE 2>&1
+#cp monoeciCore-0.12.2/bin/monoeci-cli /usr/bin/ >> $LOG_FILE 2>&1
+#cp monoeciCore-0.12.2/bin/monoeci-tx /usr/bin/ >> $LOG_FILE 2>&1
+#rm -rf monoeciCore-0.12.2 >> $LOG_FILE 2>&1
 
 #Run monoecid as selected user
-sudo -H -u $whoami bash -c 'monoecid' >> $LOG_FILE 2>&1
+#sudo -H -u $whoami bash -c 'monoecid' >> $LOG_FILE 2>&1
 
 echo 'Monoeci Core prepared and lunched'
 
-sleep 10
+#sleep 10
 
 #Setting up coin
 
