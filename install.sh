@@ -1,32 +1,3 @@
-
-Skip to content
-
-    Pull requests
-    Issues
-    Marketplace
-    Explore
-
-    @Foz72
-
-4
-3
-
-    5
-
-monacocoin-net/masternode-script-monoeci
-Code
-Issues 0
-Pull requests 0
-Projects 0
-Wiki
-Insights
-masternode-script-monoeci/install.sh
-e0626a4 a day ago
-@Yoyae Yoyae Change files path after update
-@Yoyae
-@freetrax
-@Locikll
-203 lines (168 sloc) 6.22 KB
 #!/bin/bash
 
 ################################################
