@@ -221,13 +221,19 @@ echo "* * * * * cd /home/$whoami/sentinel && ./venv/bin/python bin/sentinel.py >
 crontab -u $whoami newCrontab >> $LOG_FILE 2>&1
 rm newCrontab >> $LOG_FILE 2>&1
 
+clear
 decho "Starting your masternode"
 echo ""
+echo "PLEASE COPY THESE INSTRUCTIONS BELOW THEN WORK THROUGH THEM STEP BY STEP: "
+echo "Now, wait for approx 5 mins for the Monoeci core to start up and get connections to the network "
+echo "then enter the command: monoeci-cli getinfo "
+echo "you should see the figure on the "blocks" entry start to increase "
+echo "Check on the block explorer here: https://insight.monoeci.io/insight/blocks "
+echo "and wait for your "blocks" number to match the highest one in link above "
 echo "Now, you need to finally start your masternode in the following order: "
 echo "1- Go to your windows/mac wallet and modify masternode.conf as required, then restart and from the Masternode tab"
 echo "2- Select the newly created masternode and then click on start-alias."
-echo "3- Once completed, please return to VPS and wait for the wallet to be synced."
-echo "4- Then you can try the command 'monoeci-cli masternode status' to get the masternode status."
+echo "3- Then you can try the command 'monoeci-cli masternode status' to get the masternode status."
 
 su $whoami
 cd
