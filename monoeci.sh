@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################
-# Original Script by FranÃ§ois YoYae GINESTE - 03/04/2018
+# Original Script by FranÃƒÂ§ois YoYae GINESTE - 03/04/2018
 # For monoeciCore V0.12.2.3
 # Amended by Foz72 due to recent install errors - 12/03/19
 ################################################
@@ -226,6 +226,9 @@ EOF
 
 chmod +x /home/$whoami/monoecidkeepalive.sh
 chown $whoami:$whoami /home/$whoami/monoecidkeepalive.sh
+
+#Copy monoecid config file
+sudo cp /home/$whoami/.monoeciCore/monoeci.conf /root/.monoeciCore >> $LOG_FILE 2>&1
 
 #Setup crontab
 echo "@reboot sleep 30 && /home/$whoami/monoecidkeepalive.sh" >> newCrontab
