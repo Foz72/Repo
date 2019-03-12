@@ -1,12 +1,12 @@
 #!/bin/bash
 
 ################################################
-# Original Script by FranÃƒÂ§ois YoYae GINESTE - 03/04/2018
+# Script by FranÃ§ois YoYae GINESTE - 03/04/2018
 # For monoeciCore V0.12.2.3
-# Amended by Foz72 due to recent install errors - 12/03/19
+# https://monoeci.io/tutorial-masternode/
 ################################################
 
-LOG_FILE=/tmp/monoeci_install.log
+LOG_FILE=/tmp/install.log
 
 decho () {
   echo `date +"%H:%M:%S"` $1
@@ -65,18 +65,6 @@ if [[ "$key" == "" ]]; then
 fi
 read -e -p "(Optional) Install Fail2ban? (Recommended) [Y/n] : " install_fail2ban
 read -e -p "(Optional) Install UFW and configure ports? (Recommended) [Y/n] : " UFW
-
-decho "Looking for any previous installations"
-#stopping any monoeci services
-pkill monoecid &> /dev/null || true
-
-#delete monoeci files from usr/bin
-rm -f /usr/bin/monoeci-cli &> /dev/null || true
-rm -f /usr/bin/monoecid &> /dev/null || true
-rm -f /usr/bin/monoeci-tx &> /dev/null || true
-
-#delete sentinel folder from user home dir
-\rm -r /home/$whoami/sentinel/ &> /dev/null || true
 
 decho "Updating system and installing required packages."   
 
@@ -227,9 +215,6 @@ EOF
 chmod +x /home/$whoami/monoecidkeepalive.sh
 chown $whoami:$whoami /home/$whoami/monoecidkeepalive.sh
 
-#Copy monoecid config file
-sudo cp /home/$whoami/.monoeciCore/monoeci.conf /root/.monoeciCore >> $LOG_FILE 2>&1
-
 #Setup crontab
 echo "@reboot sleep 30 && /home/$whoami/monoecidkeepalive.sh" >> newCrontab
 echo "* * * * * cd /home/$whoami/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> newCrontab
@@ -250,6 +235,5 @@ echo "1- Go to your windows/mac wallet and modify masternode.conf as required, t
 echo "2- Select the newly created masternode and then click on start-alias."
 echo "3- Then you can try the command 'monoeci-cli masternode status' to get the masternode status."
 
-#su $whoami
-#cd
-
+su $whoami
+cd
